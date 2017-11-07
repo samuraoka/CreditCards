@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Web", "CreditCards.Web\CreditCards.Web.csproj", "{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Web", "CreditCards.Web\CreditCards.Web.csproj", "{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Data", "CreditCards.Data\CreditCards.Data.csproj", "{60361724-72C2-435C-B02E-2F3B88866312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Data", "CreditCards.Data\CreditCards.Data.csproj", "{60361724-72C2-435C-B02E-2F3B88866312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Entity", "CreditCards.Entity\CreditCards.Entity.csproj", "{23FE3F46-52F2-44F9-967D-3C9025142669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Entity", "CreditCards.Entity\CreditCards.Entity.csproj", "{23FE3F46-52F2-44F9-967D-3C9025142669}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{057C1262-D46D-46D4-BB85-C8FBCEA1F9BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
