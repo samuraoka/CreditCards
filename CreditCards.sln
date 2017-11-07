@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Web", "CreditCards.Web\CreditCards.Web.csproj", "{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Data", "CreditCards.Data\CreditCards.Data.csproj", "{60361724-72C2-435C-B02E-2F3B88866312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Entity", "CreditCards.Entity\CreditCards.Entity.csproj", "{23FE3F46-52F2-44F9-967D-3C9025142669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60361724-72C2-435C-B02E-2F3B88866312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60361724-72C2-435C-B02E-2F3B88866312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60361724-72C2-435C-B02E-2F3B88866312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60361724-72C2-435C-B02E-2F3B88866312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23FE3F46-52F2-44F9-967D-3C9025142669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23FE3F46-52F2-44F9-967D-3C9025142669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23FE3F46-52F2-44F9-967D-3C9025142669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23FE3F46-52F2-44F9-967D-3C9025142669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

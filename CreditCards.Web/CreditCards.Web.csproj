@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>fb48f5c7-9c57-4d98-a67b-9edc2d88b3bf</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +11,10 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CreditCards.Data\CreditCards.Data.csproj" />
   </ItemGroup>
 
 </Project>

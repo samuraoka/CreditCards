@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 namespace CreditCards.Web
 {
@@ -17,6 +10,15 @@ namespace CreditCards.Web
             BuildWebHost(args).Run();
         }
 
+        /// <summary>
+        /// Add configuration providers
+        /// https://docs.microsoft.com/en-us/aspnet/core/migration/1x-to-2x/#add-configuration-providers
+        /// 
+        /// Configure an ASP.NET Core App
+        /// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration?tabs=basicconfiguration
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
