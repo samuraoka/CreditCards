@@ -19,5 +19,10 @@ namespace CreditCards.Infrastructure
 
             return _dbContext.SaveChangesAsync();
         }
+
+        public async Task<CreditCardApplication> FindAsync(int applicationId)
+        {
+            return await _dbContext.CreditCardApplication.FindAsync(applicationId);
+        }
     }
 }

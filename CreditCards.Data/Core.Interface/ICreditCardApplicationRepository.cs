@@ -6,5 +6,6 @@ namespace CreditCards.Core.Interface
     public interface ICreditCardApplicationRepository
     {
         Task AddAsync(CreditCardApplication application);
+        Task<CreditCardApplication> FindAsync(int deCryptedApplicationId);
     }
 }
