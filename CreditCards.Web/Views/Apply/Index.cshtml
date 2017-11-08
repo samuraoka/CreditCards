@@ -4,29 +4,29 @@
 }
 <h1 class="h2">New Credit Card Application</h1>
 <div class="row">
-    <div class="col-md-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
                 Application Details
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 @Html.ValidationSummary()
                 <form method="post" asp-controller="Apply" asp-action="Index">
                     <fieldset class="form-group">
                         <label asp-for="FirstName"></label>
-                        <input asp-for="FirstName" class="form-control" />
+                        <input asp-for="FirstName" class="form-control" type="text" />
                     </fieldset>
                     <fieldset class="form-group">
                         <label asp-for="LastName"></label>
-                        <input asp-for="LastName" class="form-control" />
+                        <input asp-for="LastName" class="form-control" type="text" />
                     </fieldset>
                     <fieldset class="form-group">
                         <label asp-for="Age"></label>
-                        <input asp-for="Age" class="form-control" />
+                        <input asp-for="Age" class="form-control" type="number" />
                     </fieldset>
                     <fieldset class="form-group">
                         <label asp-for="GrossAnnualIncome"></label>
-                        <input asp-for="GrossAnnualIncome" class="form-control" />
+                        <input asp-for="GrossAnnualIncome" class="form-control" type="number" />
                     </fieldset>
                     <input type="submit" value="Submit Application" class="btn btn-primary" />
                 </form>
