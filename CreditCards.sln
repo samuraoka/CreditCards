@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Web", "CreditCards.Web\CreditCards.Web.csproj", "{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Entity", "CreditCards.Entity\CreditCards.Entity.csproj", "{23FE3F46-52F2-44F9-967D-3C9025142669}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{057C1262-D46D-46D4-BB85-C8FBCEA1F9BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EC3647DD-72B8-4499-8F05-58F8A8FABD56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD92C7C3-B59A-46E9-A34F-B3A5FA47F027} = {EC3647DD-72B8-4499-8F05-58F8A8FABD56}
+		{60361724-72C2-435C-B02E-2F3B88866312} = {EC3647DD-72B8-4499-8F05-58F8A8FABD56}
+		{23FE3F46-52F2-44F9-967D-3C9025142669} = {EC3647DD-72B8-4499-8F05-58F8A8FABD56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B6C477-60D6-4A2B-948F-ABD72E842CF2}
