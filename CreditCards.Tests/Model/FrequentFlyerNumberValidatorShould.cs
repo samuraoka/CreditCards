@@ -47,12 +47,21 @@ namespace CreditCards.Tests.Model
         }
 
         [Theory]
-        [InlineData("")]
         [InlineData("      -A")]
         [InlineData("  1   -A")]
         [InlineData("1     -A")]
         [InlineData("     1-A")]
         public void RejectEmptyMemberNumberDigits(string number)
+        {
+            var sut = new FrequentFlyerNumberValidator();
+
+            Assert.False(sut.IsValid(number));
+        }
+
+        [Theory]
+        [InlineData("        ")]
+        [InlineData("")]
+        public void RejectEmptyFrequentFlyerNumber(string number)
         {
             var sut = new FrequentFlyerNumberValidator();
 
