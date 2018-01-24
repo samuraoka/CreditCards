@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using CreditCards.Core.Interface;
+using Moq;
+using Xunit;
 
 namespace CreditCards.Core.Model.Tests
 {
@@ -100,6 +102,23 @@ namespace CreditCards.Core.Model.Tests
             {
                 FrequentFlyerNumber = "0dm389dn29"
             };
+
+            Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
+                sut.Evaluate(application));
+        }
+
+        [Fact]
+        public void ReferInvalidFrequentFlyerNumbers_MockValidator()
+        {
+            // Moq
+            // Install-Package -Id Moq -ProjectName CreditCards.Tests
+            // https://www.nuget.org/packages/Moq/
+            var mockValidator = new Mock<IFrequentFlyerNumberValidator>();
+            mockValidator.Setup(x => x.IsValid(It.IsAny<string>())).Returns(false);
+
+            var sut = new CreditCardApplicationEvaluator(mockValidator.Object);
+
+            var application = new CreditCardApplication();
 
             Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
                 sut.Evaluate(application));
