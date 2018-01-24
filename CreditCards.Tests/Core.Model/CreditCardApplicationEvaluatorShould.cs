@@ -10,7 +10,22 @@ namespace CreditCards.Core.Model.Tests
             = CreditCardApplicationEvaluator.LowIncomeThreshold;
         private const int ExpectedHighIncomeThreshold
             = CreditCardApplicationEvaluator.HighIncomeThreshold;
-        private const string ValidFrequentFlyerNumber = "012345-A";
+
+        // Moq
+        // Install-Package -Id Moq -ProjectName CreditCards.Tests
+        // https://www.nuget.org/packages/Moq/
+        private readonly Mock<IFrequentFlyerNumberValidator> _mockValidator;
+        private readonly CreditCardApplicationEvaluator _sut; // sut means System Unter Test
+
+        public CreditCardApplicationEvaluatorShould()
+        {
+            // Moq: Quickstart
+            // https://github.com/Moq/moq4/wiki/Quickstart
+            _mockValidator = new Mock<IFrequentFlyerNumberValidator>();
+            _mockValidator.Setup(x => x.IsValid(It.IsAny<string>())).Returns(true);
+
+            _sut = new CreditCardApplicationEvaluator(_mockValidator.Object);
+        }
 
         [Theory]
         [InlineData(ExpectedHighIncomeThreshold)]
@@ -18,17 +33,13 @@ namespace CreditCards.Core.Model.Tests
         [InlineData(int.MaxValue)]
         public void AcceptAllHighIncomeApplicants(int income)
         {
-            var sut = new CreditCardApplicationEvaluator(
-                new FrequentFlyerNumberValidator());
-
             var application = new CreditCardApplication
             {
                 GrossAnnualIncome = income,
-                FrequentFlyerNumber = ValidFrequentFlyerNumber,
             };
 
             Assert.Equal(CreditCardApplicationDecision.AutoAccepted,
-                sut.Evaluate(application));
+                _sut.Evaluate(application));
         }
 
         [Theory]
@@ -38,18 +49,14 @@ namespace CreditCards.Core.Model.Tests
         [InlineData(int.MinValue, ExpectedHighIncomeThreshold - 1)]
         public void ReferYoungApplicantsWhoAreNotHighIncome(int age, int income)
         {
-            var sut = new CreditCardApplicationEvaluator(
-                new FrequentFlyerNumberValidator());
-
             var application = new CreditCardApplication
             {
                 GrossAnnualIncome = income,
                 Age = age,
-                FrequentFlyerNumber = ValidFrequentFlyerNumber,
             };
 
             Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
-                sut.Evaluate(application));
+                _sut.Evaluate(application));
         }
 
         [Theory]
@@ -58,18 +65,14 @@ namespace CreditCards.Core.Model.Tests
         [InlineData(ExpectedHighIncomeThreshold - 1, 21)]
         public void ReferNonYoungApplicantsWhoAreMiddleIncome(int income, int age)
         {
-            var sut = new CreditCardApplicationEvaluator(
-                new FrequentFlyerNumberValidator());
-
             var application = new CreditCardApplication
             {
                 GrossAnnualIncome = income,
                 Age = age,
-                FrequentFlyerNumber = ValidFrequentFlyerNumber,
             };
 
             Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
-                sut.Evaluate(application));
+                _sut.Evaluate(application));
         }
 
         [Theory]
@@ -78,50 +81,30 @@ namespace CreditCards.Core.Model.Tests
         [InlineData(int.MinValue)]
         public void DeclineAllApplicantsWhoAreLowIncome(int income)
         {
-            var sut = new CreditCardApplicationEvaluator(
-                new FrequentFlyerNumberValidator());
-
             var application = new CreditCardApplication
             {
                 GrossAnnualIncome = income,
                 Age = 21,
-                FrequentFlyerNumber = ValidFrequentFlyerNumber,
             };
 
             Assert.Equal(CreditCardApplicationDecision.AutoDeclined,
-                sut.Evaluate(application));
+                _sut.Evaluate(application));
         }
 
         [Fact]
-        public void ReferInvalidFrequentFlyerNumbers_RealValidator()
+        public void ReferInvalidFrequentFlyerNumbers()
         {
-            var sut = new CreditCardApplicationEvaluator(
-                new FrequentFlyerNumberValidator());
-
-            var application = new CreditCardApplication
-            {
-                FrequentFlyerNumber = "0dm389dn29"
-            };
-
-            Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
-                sut.Evaluate(application));
-        }
-
-        [Fact]
-        public void ReferInvalidFrequentFlyerNumbers_MockValidator()
-        {
-            // Moq
-            // Install-Package -Id Moq -ProjectName CreditCards.Tests
-            // https://www.nuget.org/packages/Moq/
-            var mockValidator = new Mock<IFrequentFlyerNumberValidator>();
-            mockValidator.Setup(x => x.IsValid(It.IsAny<string>())).Returns(false);
-
-            var sut = new CreditCardApplicationEvaluator(mockValidator.Object);
+            // this statement overrides default behavior of this mock object that is set up in this constructor
+            _mockValidator.Setup(x => x.IsValid(It.IsAny<string>())).Returns(false);
 
             var application = new CreditCardApplication();
 
             Assert.Equal(CreditCardApplicationDecision.ReferredToHuman,
-                sut.Evaluate(application));
+                _sut.Evaluate(application));
+
+            // Moq: Verification
+            // https://github.com/Moq/moq4/wiki/Quickstart#verification
+            _mockValidator.Verify(x => x.IsValid(It.IsAny<string>()), Times.Once);
         }
     }
 }
