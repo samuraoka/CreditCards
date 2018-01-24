@@ -1,8 +1,7 @@
-using CreditCards.Core.Model;
 using System;
 using Xunit;
 
-namespace CreditCards.Tests.Model
+namespace CreditCards.Core.Model.Tests
 {
     public class FrequentFlyerNumberValidatorShould
     {
