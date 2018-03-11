@@ -14,7 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CreditCards.Data\CreditCards.Data.csproj" />
     <ProjectReference Include="..\CreditCards.Entity\CreditCards.Entity.csproj" />
+    <ProjectReference Include="..\CreditCards.Web\CreditCards.Web.csproj" />
   </ItemGroup>
 
 </Project>
