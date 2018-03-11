@@ -13,6 +13,7 @@ namespace CreditCards.Infrastructure
     ///   
     /// To add/remove a new migration, execute a following command
     /// PM> Add-Migration -Name Init -Context AppDbContext -Project CreditCards.Data -StartupProject CreditCards.Web
+    /// PM> Add-Migration -Name AddedColumn -Context AppDbContext -Project CreditCards.Data -StartupProject CreditCards.Web
     /// And if you have a error, try to add properties to the csproj file.
     /// <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     /// <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
