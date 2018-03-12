@@ -17,6 +17,10 @@ namespace CreditCards.Web.Models
         [Range(18, int.MaxValue, ErrorMessage = "You must be at lease 18 years old")]
         public int? Age { get; set; }
 
+        [Display(Name = "Frequent Flyer Number")]
+        [Required(ErrorMessage = "Please provide a frequent flyer number")]
+        public string FrequentFlyerNumber { get; set; }
+
         [Display(Name = "Gross Income")]
         [Required(ErrorMessage = "Please provide your gross income")]
         public decimal? GrossAnnualIncome { get; set; }
