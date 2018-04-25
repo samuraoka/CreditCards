@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{057C1262
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EC3647DD-72B8-4499-8F05-58F8A8FABD56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.Tests", "CreditCards.Tests\CreditCards.Tests.csproj", "{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCards.Tests", "CreditCards.Tests\CreditCards.Tests.csproj", "{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCards.IntegrationTests", "CreditCards.IntegrationTests\CreditCards.IntegrationTests.csproj", "{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{60361724-72C2-435C-B02E-2F3B88866312} = {EC3647DD-72B8-4499-8F05-58F8A8FABD56}
 		{23FE3F46-52F2-44F9-967D-3C9025142669} = {EC3647DD-72B8-4499-8F05-58F8A8FABD56}
 		{1C7B1118-A45B-4D95-AC04-9B7984DFFEE1} = {057C1262-D46D-46D4-BB85-C8FBCEA1F9BF}
+		{6F1D11C0-5886-4E1F-A9CA-F4AB460BC989} = {057C1262-D46D-46D4-BB85-C8FBCEA1F9BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88B6C477-60D6-4A2B-948F-ABD72E842CF2}
