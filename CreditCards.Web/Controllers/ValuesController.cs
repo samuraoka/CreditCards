@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace CreditCards.Web.Controllers
 {
+    // Combining routes - Routing to controller actions in ASP.NET Core
+    // https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-2.0#combining-routes
+    [Route("values")]
     public class ValuesController : Controller
     {
         [HttpGet]
@@ -22,6 +25,9 @@ namespace CreditCards.Web.Controllers
             return Content($"Value {id}");
         }
 
+        // Invoke-WebRequest
+        // https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-6
+        // Invoke-WebRequest -Uri http://localhost:58924/values/StartJob -Method POST
         [HttpPost("StartJob")]
         public IActionResult StartJob()
         {
