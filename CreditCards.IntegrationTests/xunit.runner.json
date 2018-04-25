@@ -1,0 +1,5 @@
+﻿{
+  // Testing ASP.NET Core MVC web apps in-memory
+  // https://blogs.msdn.microsoft.com/webdev/2017/12/07/testing-asp-net-core-mvc-web-apps-in-memory/
+  "shadowCopy": false
+}

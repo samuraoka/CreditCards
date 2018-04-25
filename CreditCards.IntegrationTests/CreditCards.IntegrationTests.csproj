@@ -4,6 +4,18 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <!--
+      Testing ASP.NET Core MVC web apps in-memory
+      https://blogs.msdn.microsoft.com/webdev/2017/12/07/testing-asp-net-core-mvc-web-apps-in-memory/
+    -->
+    <!--
+      The functional tests act as the host application for all test websites. Since the CLI copies all reference
+      assembly dependencies in websites to their corresponding bin/{config}/refs folder we need to re-calculate
+      reference assemblies for this project so there's a corresponding refs folder in our output. Without it
+      our websites deps files will fail to find their assembly references.
+    -->
+    <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,4 +26,14 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CreditCards.Web\CreditCards.Web.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyAdditionalFiles" AfterTargets="Build" Condition="'$(TargetFramework)'!=''">
+    <ItemGroup>
+      <DepsFilePaths Include="$([System.IO.Path]::ChangeExtension('%(_ResolvedProjectReferencePaths.FullPath)', '.deps.json'))" />
+    </ItemGroup>
+    <Copy SourceFiles="%(DepsFilePaths.FullPath)" DestinationFolder="$(OutputPath)" Condition="Exists('%(DepsFilePaths.FullPath)')" />
+  </Target>
 </Project>
